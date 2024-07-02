@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Engineering Conference 2024</title>
+    <style>
+      body {
+        font-family: "Merriweather", "Georgia", serif;
+        background-color: #1a1a1a;
+        color: #ffffff;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        width: 80%;
+        margin: auto;
+        overflow: hidden;
+        padding: 20px;
+      }
+      header {
+        background: #2c3e50;
+        color: #ecf0f1;
+        padding-top: 30px;
+        min-height: 70px;
+        border-bottom: #e74c3c 3px solid;
+      }
+      header h1 {
+        margin: 0;
+        text-align: center;
+        font-size: 3em;
+      }
+      nav {
+        background: #34495e;
+        padding: 10px 0;
+      }
+      nav ul {
+        padding: 0;
+        list-style: none;
+        text-align: center;
+      }
+      nav li {
+        display: inline;
+        margin: 0 10px;
+      }
+      nav a {
+        color: #ecf0f1;
+        text-decoration: none;
+        font-size: 18px;
+      }
+      section {
+        padding: 20px 0;
+        border-bottom: #3498db 1px solid;
+      }
+      h2 {
+        color: #3498db;
+      }
+      .speaker,
+      .workshop {
+        background: #2c3e50;
+        border-radius: 5px;
+        padding: 15px;
+        margin-bottom: 10px;
+        transition: transform 0.3s ease;
+      }
+      .speaker:hover,
+      .workshop:hover {
+        transform: scale(1.05);
+      }
+      #countdown {
+        font-size: 2em;
+        text-align: center;
+        margin: 20px 0;
+      }
+      .btn {
+        display: inline-block;
+        background: #e74c3c;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background 0.3s ease;
+      }
+      .btn:hover {
+        background: #c0392b;
+      }
+      footer {
+        background: #2c3e50;
+        color: #ecf0f1;
+        text-align: center;
+        padding: 10px;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>AI Engineering Conference 2024</h1>
+      </div>
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#speakers">Speakers</a></li>
+        <li><a href="#workshops">Workshops</a></li>
+        <li><a href="#qa">Live Q&A</a></li>
+      </ul>
+    </nav>
+
+    <div class="container">
+      <section id="about">
+        <h2>About the Conference</h2>
+        <p>
+          Join us on August 8th, 2024, for a groundbreaking conference on AI
+          Engineering hosted by Union City Ventures in San Francisco. Explore
+          the latest advancements, challenges, and opportunities in the field of
+          AI engineering with industry experts and thought leaders.
+        </p>
+        <div id="countdown"></div>
+      </section>
+
+      <section id="speakers">
+        <h2>Featured Speakers</h2>
+        <div class="speaker">
+          <h3>Dr. Emily Chen</h3>
+          <p>Chief AI Scientist at TechInnovate</p>
+        </div>
+        <div class="speaker">
+          <h3>Prof. Michael Johnson</h3>
+          <p>Director of AI Research, Stanford University</p>
+        </div>
+        <div class="speaker">
+          <h3>Sarah Lee</h3>
+          <p>AI Ethics Advocate and Author</p>
+        </div>
+      </section>
+
+      <section id="workshops">
+        <h2>Workshops</h2>
+        <div class="workshop">
+          <h3>Implementing Ethical AI in Practice</h3>
+          <p>
+            A hands-on workshop exploring real-world scenarios and solutions.
+          </p>
+        </div>
+        <div class="workshop">
+          <h3>Advanced Natural Language Processing Techniques</h3>
+          <p>Dive deep into the latest NLP models and their applications.</p>
+        </div>
+        <div class="workshop">
+          <h3>AI in Healthcare: Challenges and Opportunities</h3>
+          <p>
+            Explore the transformative potential of AI in medical diagnosis and
+            treatment.
+          </p>
+        </div>
+      </section>
+
+      <section id="qa">
+        <h2>Live Q&A Sessions</h2>
+        <p>
+          Engage directly with our speakers and industry experts in interactive
+          Q&A sessions throughout the day.
+        </p>
+        <a href="#" class="btn">View Q&A Schedule</a>
+      </section>
+    </div>
+
+    <footer>
+      <p>
+        &copy; 2024 AI Engineering Conference. Hosted by Union City Ventures,
+        San Francisco.
+      </p>
+    </footer>
+
+    <script>
+      // Countdown Timer
+      const conferenceDate = new Date("Aug 8, 2024 09:00:00").getTime();
+
+      const countdownFunction = setInterval(function () {
+        const now = new Date().getTime();
+        const distance = conferenceDate - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("countdown").innerHTML =
+          days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+        if (distance < 0) {
+          clearInterval(countdownFunction);
+          document.getElementById("countdown").innerHTML =
+            "Conference has started!";
+        }
+      }, 1000);
+
+      // Smooth scrolling for navigation
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
